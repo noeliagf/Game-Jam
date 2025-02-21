@@ -1,0 +1,20 @@
+# Ignorar la carpeta Library (caché de Unity)
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+
+# Ignorar archivos de configuración del entorno de desarrollo
+.vs/
+.idea/
+.vscode/
+
+# Ignorar configuraciones del usuario de Unity
+UserSettings/
+
+# Ignorar archivos temporales y de log
+*.bak
+*.swp
+*.log
