@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a15ac4825088bc74786e8e29010d6f06
+guid: ef545ca8779f0094cbcded32afb1c2d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4476089007242716017
-    second: RAKK_0
+      213: -1023834547515773782
+    second: VADIVA_NOPIXEL_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RAKK_0
+      name: VADIVA_NOPIXEL_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 440
-        height: 969
+        width: 387
+        height: 889
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 173abbb9c334e1e30800000000000000
-      internalID: 4476089007242716017
+      spriteID: aacac8e47eb9ac1f0800000000000000
+      internalID: -1023834547515773782
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      RAKK_0: 4476089007242716017
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
