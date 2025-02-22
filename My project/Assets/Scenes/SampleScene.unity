@@ -2011,11 +2011,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.05
   initialDialogues:
-  - gola
-  - si
+  - EY
+  - OLA
   - gominola
   - owo!
-  - fok
+  - UH CHA CHA U  CHA
   textComponent: {fileID: 446641991}
   questionManager: {fileID: 1079928942}
 --- !u!1 &1691450507

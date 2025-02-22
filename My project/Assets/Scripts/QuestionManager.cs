@@ -8,7 +8,7 @@ public class QuestionManager : MonoBehaviour
 {
     public List<Question> questions = new List<Question>();  // Lista de preguntas
     public Button[] optionButtons;  // Botones de opciones
-    public string titleSceneName = "TitleScene";  // Nombre de la escena de título
+    public TextMeshProUGUI questionTextComponent;  // Componente de texto para mostrar la pregunta
     private List<Question> selectedQuestions = new List<Question>();  // Preguntas seleccionadas aleatoriamente
     private int currentQuestionIndex = 0;  // Índice de la pregunta actual
 
@@ -63,7 +63,16 @@ public class QuestionManager : MonoBehaviour
         }
 
         Question currentQuestion = selectedQuestions[currentQuestionIndex];
-        Debug.Log("Pregunta actual: " + currentQuestion.questionText);
+
+        // Mostrar la pregunta en el TextMeshProUGUI
+        if (questionTextComponent != null)
+        {
+            questionTextComponent.text = currentQuestion.questionText;
+        }
+        else
+        {
+            Debug.LogError("❌ ERROR: No se asignó un componente TextMeshProUGUI para la pregunta.");
+        }
 
         // Mostrar las opciones en los botones
         optionButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.option1;
@@ -104,7 +113,7 @@ public class QuestionManager : MonoBehaviour
         else
         {
             Debug.Log("❌ Incorrecto. Reiniciando...");
-            SceneManager.LoadScene(titleSceneName);
+            SceneManager.LoadScene("DeathScene");  // Cargar la escena de muerte
         }
     }
 }
