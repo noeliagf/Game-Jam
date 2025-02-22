@@ -3,7 +3,7 @@ using TMPro;  // Asegúrate de importar TextMeshPro
 
 public class TimerController : MonoBehaviour
 {
-    public float tiempoRestante = 180f;  // 3 minutos
+    public float tiempoRestante = 120f;  // 2 minutos
     private float velocidadTiempo = 1f;  // Velocidad normal
     public TextMeshProUGUI tiempoText;  // Usamos TextMeshProUGUI en lugar de Text
 

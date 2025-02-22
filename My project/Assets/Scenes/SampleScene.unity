@@ -156,8 +156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 35}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227426496
 MonoBehaviour:
@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 446641992}
   - component: {fileID: 446641991}
   - component: {fileID: 446641993}
+  - component: {fileID: 446641994}
   m_Layer: 5
   m_Name: Text (TMP)1
   m_TagString: Untagged
@@ -489,6 +490,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311398191cb23b48887c5f800836872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &446641994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446641989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5b0c953c4759f448781fd59d05dd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: nj
+    option1: jnn
+    option2: lkn
+    option3: on
+    correctOption: 1
+  - questionText: knklnkl
+    option1: knkl
+    option2: nkn
+    option3: knm
+    correctOption: 2
+  - questionText: k
+    option1: kn
+    option2: kn
+    option3: k
+    correctOption: 2
+  - questionText: knkln
+    option1: kn
+    option2: kn
+    option3: k
+    correctOption: 1
+  - questionText: knkln
+    option1: kn
+    option2: kn
+    option3: kn
+    correctOption: 1
+  - questionText: nk
+    option1: nk
+    option2: nk
+    option3: nk
+    correctOption: 1
+  - questionText: lml
+    option1: lml
+    option2: ml
+    option3: m
+    correctOption: 2
+  optionButtons:
+  - {fileID: 852438968}
+  - {fileID: 227426496}
+  - {fileID: 1691450509}
+  titleSceneName: TitleScene
 --- !u!1 &504890187
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,8 +627,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1106,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49945ad821e3bec48b4152ffe02a7973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoRestante: 180
+  tiempoRestante: 120
   tiempoText: {fileID: 1008558830}
 --- !u!1 &852438966
 GameObject:
@@ -1145,8 +1199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 90}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852438968
 MonoBehaviour:
@@ -1365,8 +1419,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1503,42 +1557,107 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - s
-  - k
-  - ko
-  - jop
-  - jo
-  - joj
-  - jo
-  - jop
-  - jo
-  - j
-  - oj
-  - ojo
-  - jo
-  - pjop
-  - jop
-  - jopj
-  - opjkln
-  - kn
-  - lkn
-  - lkn
-  - kn
-  - kn
-  - kl
-  - nkl
-  - nkl
-  - nlk
-  - nl
-  - n
-  - lknl
-  - kl
+  - questionText: "BUENAS, ME SORPENDE MUCHO VERTE AQU\xCD, \xBFC\xD3MO HAS VENIDO? "
+    option1: PATINETE ELECTRICO
+    option2: "HE TENIDO QUE SACAR EL PARAGUAS/LA PARAGUA ES UN BARCO PARA NAVEGAR
+      EN ESTE OC\xC9ANO DE LUZ   "
+    option3: 'CAMINANDO '
+    correctOption: 2
+  - questionText: "LEEMOS EN TU CV QUE HAS TRABAJADO COMO JEFE DE COCINA EN MC GOOFY\u2019S.
+      \xBFCU\xC1LES FUERON TUS FUNCIONES? "
+    option1: DESIGNAR CUERPOS A DIFERENTES COCINEROS
+    option2: COMER LOS RESTOS
+    option3: HACER PELOTAS AL JEFE
+    correctOption: 1
+  - questionText: "\xBFD\xD3NDE TE VES EN TRES 3 A\xD1OS?  "
+    option1: ASCENDER COMO JEFE
+    option2: 'MAKE HUMBURGER QUEEN GREAT AGAIN '
+    option3: 'ESTAR DESPEDIDO  '
+    correctOption: 2
+  - questionText: "\xBFQU\xC9 TIPO DE CARNE HUELE A MENTIRA Y LOCURA? "
+    option1: "LOS POL\xCDTICOS  "
+    option2: 'GRANDES '
+    option3: LOS GUIRIS
+    correctOption: 3
+  - questionText: "\xBFQU\xC9 TIPO DE CARNE USAR\xCDAS SI EL CLIENTE QUIERE HAMBURGUESA
+      M\xC1S SALADA? "
+    option1: 'UNO '
+    option2: "M\xC1S "
+    option3: TODO ES PSICOLOGICO, YA ESTA BIEN ASI
+    correctOption: 3
+  - questionText: "\xBFQU\xC9 EXPECTATIVA SALARIAL TIENES? "
+    option1: "YA ME HAS DADO TRABAJO, \xBFPOR QU\xC9 NECESITO SALARIO "
+    option2: 10 CABEZAS AL MES
+    option3: 1 CHIMPANCE
+    correctOption: 2
+  - questionText: "\xBFQU\xC9 HACER PARA QUE LA CARNE EST\xC9 M\xC1S TIERNA? "
+    option1: ECHAR MAICENA Y CLARA DE HUEVO
+    option2: 'ECHAR LAVA Y CENIZA  '
+    option3: 'SANGRE '
+    correctOption: 1
+  - questionText: 'PRODUCTO '
+    option1: PULPO A LA MARCIANA
+    option2: "PINCHO DE MIRI\xC1PODOS "
+    option3: 'HOTPOT DE COLUMNA VERTEBRAL  '
+    correctOption: 2
+  - questionText: "\xBFPOR QU\xC9 LA CARNE A VECES SE QUEDA AMARGA? "
+    option1: 'SU VIDA HA SIDO DURA  '
+    option2: 'LLEVA '
+    option3: UVA CON PIEL
+    correctOption: 1
+  - questionText: "\xBFQU\xC9 HAR\xCDAS SI VES UN PELO EN LA COMIDA? "
+    option1: 'QUITAR '
+    option2: "QU\xC9 BUEN GUSTO TIENE ESTE CLIENTE  "
+    option3: "REZAR AL NUESTRO SE\xD1OR TODOS PODEROSOS, CREADOR, ORIGEN, PROTECTOR
+      DE TODOS LOS MONSTRUOS Y DIOS DEL MOCO VOLADOR "
+    correctOption: 3
+  - questionText: "\xBFQU\xC9 HAR\xCDAS SI TU COMPA\xD1ERO DE TRABAJO QUIERE COMER
+      UN PEDIDO? "
+    option1: 'ESTE BICHO ES LISTO, HAY QUE CORTARLE LA CABEZA '
+    option2: 'NO '
+    option3: 'UNO '
+    correctOption: 1
+  - questionText: "\xBFQU\xC9 HAR\xCDAS SI UNO DE TU COMPA\xD1ERO EMPIEZA A ATACAR
+      A OTRO COMPA\xD1ERO? "
+    option1: 'APROVECHAR PARA ROBAR UN PEDIDO  '
+    option2: "COMER UN TROZO DE CUERPO DEL COMPA\xD1ERO  "
+    option3: 'ESCUPIR EN LA COMIDA  '
+    correctOption: 3
+  - questionText: "BIENVENIDO A HUMBURGER QUEEN. Y ENCIMA HACE MUY BUEN D\xCDA. "
+    option1: "QU\xC9 BUEN TIEMPO HACE "
+    option2: "SI NO FUESE POR ESTA ENTREVISTA NO SALGO DE CASA \u2013 respuesta correcta "
+    option3: "NO EST\xC1 MAL "
+    correctOption: 1
+  - questionText: "\xBFHAS CONOCIDO A BADIVA?  "
+    option1: "ME PARECI\xD3 VERLA CON LA SECRETARIA"
+    option2: "SE PARECE A UN POL\xCDTICO TERRESTRE "
+    option3: "TIENE UN ESTILO \xDANICO "
+    correctOption: 2
+  - questionText: "QU\xC9 CASUALIDAD QUE CON ESE NOMBRE TE DEDIQUES A LA COCINA,
+      \xBFCU\xC1L ES TU NOMBRE COMPLETO? "
+    option1: 'DURUM EQUISELE '
+    option2: 'AGENTE '
+    option3: 'BURGOR DEPOIO '
+    correctOption: 1
+  - questionText: "\xBFCUANT\xC1S VECES HAY QUE MASTICAR ANTES DE TRAGAR? "
+    option1: "\xBFMASTICAR? \xBFQU\xC9 ES MASTICAR? "
+    option2: '30 VECES  '
+    option3: VECES
+    correctOption: 3
+  - questionText: "\xBFQU\xC9 HACES PARA DESCANSAR EN LA COCINA? "
+    option1: 'BOLSA DE DORMIR  '
+    option2: "COLCH\xD3N HINCHABLE  "
+    option3: 'VOLVER A CASA  '
+    correctOption: 3
+  - questionText: 'DIME LA CARACTERISTICA SOBRE LA CARNE DE ESTA ZONA '
+    option1: 'EN GENERAL DURA  '
+    option2: 'GENERAL '
+    option3: EN GENERAL AL PUNTO
+    correctOption: 3
   optionButtons:
   - {fileID: 852438968}
   - {fileID: 227426496}
   - {fileID: 1691450509}
-  correctOptionText: Correcto
-  incorrectOptionText: Incorrecto
   titleSceneName: TitleScene
 --- !u!1 &1149523182
 GameObject:
@@ -1790,8 +1909,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1936,8 +2055,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691450509
 MonoBehaviour:
@@ -2240,8 +2359,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
