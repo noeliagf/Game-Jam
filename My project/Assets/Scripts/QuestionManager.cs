@@ -14,30 +14,20 @@ public class QuestionManager : MonoBehaviour
     private List<string> selectedQuestions = new List<string>();
     private int currentQuestionIndex = 0;
     private int correctOptionIndex;
-    
-    private DialogueManager dialogueManager; // Referencia al DialogueManager
 
     void Start()
     {
-        dialogueManager = FindObjectOfType<DialogueManager>(); // Busca el objeto de DialogueManager en la escena
-        if (dialogueManager != null)
-        {
-            dialogueManager.OnDialogueFinished += OnDialogueFinished;  // Se suscribe al evento de finalización del diálogo
-        }
-
-        // Desactivar botones al inicio
         foreach (Button button in optionButtons)
         {
             button.gameObject.SetActive(false);
         }
 
-        // Seleccionar preguntas aleatorias
         SelectRandomQuestions();
     }
 
-    void OnDialogueFinished()
+    public void StartQuestions()
     {
-        // Una vez que el diálogo termine, mostrar las preguntas
+        Debug.Log("Iniciando preguntas...");
         ShowQuestion();
     }
 
@@ -74,10 +64,8 @@ public class QuestionManager : MonoBehaviour
         }
 
         string currentQuestion = selectedQuestions[currentQuestionIndex];
-        // Mostrar la pregunta en pantalla (asumimos que tienes un TextMeshPro o similar para mostrarla)
-        Debug.Log(currentQuestion);
+        Debug.Log("Pregunta actual: " + currentQuestion);
 
-        // Activar los botones de opciones
         foreach (Button button in optionButtons)
         {
             button.gameObject.SetActive(true);

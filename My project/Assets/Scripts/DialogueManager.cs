@@ -5,16 +5,17 @@ using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
-    public float delay = 0.05f;
-    public List<string> initialDialogues = new List<string>();
-    public TextMeshProUGUI textComponent;
-    private int currentDialogueIndex = 0;
-    private string fullText;
-    private string currentText = "";
-    private bool isTyping = false;
+    public float delay = 0.05f;  // Velocidad del efecto (segundos por carácter)
+    public List<string> initialDialogues = new List<string>();  // Diálogos iniciales
+    public TextMeshProUGUI textComponent;  // Componente de texto para mostrar el diálogo
+    private int currentDialogueIndex = 0;  // Índice del diálogo actual
+    private string fullText;  // Texto completo del diálogo actual
+    private string currentText = "";  // Texto actual mostrado
+    private bool isTyping = false;  // Indica si el efecto tipowriter está activo
+    private bool isDialogueActive = false;  // Controlar si el diálogo está activo
 
-    public delegate void DialogueFinished();
-    public event DialogueFinished OnDialogueFinished;  // Evento para notificar cuando el diálogo termine
+    // Referencia al QuestionManager
+    public QuestionManager questionManager;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class DialogueManager : MonoBehaviour
 
         if (initialDialogues.Count > 0)
         {
-            StartDialogue();
+            StartDialogue();  // Iniciar el primer diálogo
         }
         else
         {
@@ -41,22 +42,26 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        // Avanzar el diálogo cuando se presiona "Espacio"
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isDialogueActive)  // Solo avanzar el diálogo si está activo
         {
-            if (isTyping)
+            // Avanzar el diálogo cuando se presiona "Espacio"
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                SkipTyping();
-            }
-            else
-            {
-                NextDialogue();
+                if (isTyping)
+                {
+                    SkipTyping();
+                }
+                else
+                {
+                    NextDialogue();
+                }
             }
         }
     }
 
     public void StartDialogue()
     {
+        isDialogueActive = true;  // Activar el diálogo
         if (currentDialogueIndex < initialDialogues.Count)
         {
             fullText = initialDialogues[currentDialogueIndex];
@@ -97,8 +102,18 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("🎉 ¡Diálogos terminados! Ahora puedes continuar con las preguntas.");
-            OnDialogueFinished?.Invoke();  // Notificar que el diálogo ha terminado
+            Debug.Log("🎉 ¡Diálogos terminados!");
+            isDialogueActive = false;  // Desactivar diálogo
+
+            // Llamamos a la función en QuestionManager para avanzar con las preguntas
+            if (questionManager != null)
+            {
+                questionManager.StartQuestions();  // Avanzar a las preguntas
+            }
+            else
+            {
+                Debug.LogError("❌ ERROR: No se ha asignado el QuestionManager.");
+            }
         }
     }
 }

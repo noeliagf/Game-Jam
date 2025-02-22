@@ -1769,6 +1769,7 @@ MonoBehaviour:
   - owo!
   - fok
   textComponent: {fileID: 446641991}
+  questionManager: {fileID: 1079928942}
 --- !u!1 &1691450507
 GameObject:
   m_ObjectHideFlags: 0
