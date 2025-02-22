@@ -260,6 +260,7 @@ MonoBehaviour:
   correctOptionText: Correcto
   incorrectOptionText: Incorrecto
   titleSceneName: TitleScene
+  textComponent: {fileID: 0}
 --- !u!1 &412320028
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +361,7 @@ GameObject:
   - component: {fileID: 446641991}
   - component: {fileID: 446641993}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text (TMP)1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,13 +497,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311398191cb23b48887c5f800836872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.4
-  initialDialogues: []
-  questions: []
-  optionButtons: []
-  correctOptionText: Correcto
-  incorrectOptionText: Incorrecto
+  delay: 0.05
+  initialDialogues:
+  - WSQWOKO
+  - JIO
+  - JIO
+  - IH
+  - IOHK
+  - NKL
+  - N
+  - LNI
+  - KL
+  - NK
+  - NKL
+  - NLK
+  - NK
+  - NKLN
+  - LKN
+  - LKN
+  - LN
+  - NJ
+  - NL
+  - JN
+  - LKN
+  - KL
+  - N;K
+  - IJHI
+  - HIOU
+  - H
+  - I
+  - PIJ
+  - KNLK
+  - LIH
+  questions:
+  - 
+  - NJK
+  - KJUNKH
+  - LKN
+  - KLNKL
+  - NK
+  - NLKN
+  - I
+  - HILH
+  - LKK
+  - NK
+  - NKL
+  - NLK
+  - NKL
+  - NKL
+  - NK
+  - NKLNK
+  - LNKL
+  - NK
+  - NK
+  - KK
+  - NK
+  - NI
+  - ;M
+  - KLKNKLNKNOIN
+  - NLK
+  - NK
+  - NK
+  - NKK
+  - KN
+  optionButtons:
+  - {fileID: 852438968}
+  - {fileID: 227426496}
+  - {fileID: 1691450509}
+  correctOptionText: yes
+  incorrectOptionText: no
   titleSceneName: TitleScene
+  textComponent: {fileID: 446641991}
 --- !u!1 &504890187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1199,7 @@ MonoBehaviour:
   correctOptionText: Correcto
   incorrectOptionText: Incorrecto
   titleSceneName: TitleScene
+  textComponent: {fileID: 0}
 --- !u!1 &1000279819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1867,7 @@ MonoBehaviour:
   correctOptionText: Correcto
   incorrectOptionText: Incorrecto
   titleSceneName: TitleScene
+  textComponent: {fileID: 0}
 --- !u!1 &1711476248
 GameObject:
   m_ObjectHideFlags: 0

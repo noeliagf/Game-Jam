@@ -7,31 +7,61 @@ using System.Collections.Generic;
 
 public class TypewriterEffect : MonoBehaviour
 {
-    public float delay = 0.05f;  // Velocidad del efecto (segundos por carácter)
-    public List<string> initialDialogues = new List<string>();  // Diálogos iniciales
-    public List<string> questions = new List<string>();  // Lista de 30 preguntas
-    public Button[] optionButtons;  // Los tres botones de opciones
-    public string correctOptionText = "Correcto";  // Texto de la opción correcta
-    public string incorrectOptionText = "Incorrecto";  // Texto de las opciones incorrectas
-    public string titleSceneName = "TitleScene";  // Nombre de la escena de título
+    public float delay = 0.05f;
+    public List<string> initialDialogues = new List<string>();
+    public List<string> questions = new List<string>();
+    public Button[] optionButtons;
+    public string correctOptionText = "Correcto";
+    public string incorrectOptionText = "Incorrecto";
+    public string titleSceneName = "TitleScene";
 
-    private List<string> selectedQuestions = new List<string>();  // Preguntas seleccionadas aleatoriamente
-    private int currentQuestionIndex = 0;  // Índice de la pregunta actual
-    private int currentDialogueIndex = 0;  // Índice del diálogo actual
-    private string fullText;  // Texto completo del diálogo actual
-    private string currentText = "";  // Texto actual mostrado
-    private TextMeshProUGUI textComponent;
-    private bool isTyping = false;  // Indica si el efecto tipowriter está activo
-    private bool isShowingOptions = false;  // Indica si se están mostrando opciones
-    private int correctOptionIndex;  // Índice de la opción correcta
+    private List<string> selectedQuestions = new List<string>();
+    private int currentQuestionIndex = 0;
+    private int currentDialogueIndex = 0;
+    private string fullText;
+    private string currentText = "";
+    public TextMeshProUGUI textComponent; // Hacerlo público para asignarlo manualmente en el Inspector
+    private bool isTyping = false;
+    private bool isShowingOptions = false;
+    private int correctOptionIndex;
 
     void Start()
     {
-        textComponent = GetComponent<TextMeshProUGUI>();
+        
+        // Validación: Verificar si el TextMeshProUGUI está asignado
+        if (textComponent == null)
+        {
+            textComponent = GetComponentInChildren<TextMeshProUGUI>();
 
-        // Desactiva los botones al inicio
+            if (textComponent == null)
+            {
+                Debug.LogError("❌ ERROR: No se encontró un componente TextMeshProUGUI en este GameObject.");
+                return; // Detener ejecución para evitar más errores
+            }
+        }
+
+        // Validación: Verificar si hay preguntas suficientes
+        if (questions.Count < 7)
+        {
+            Debug.LogError("❌ ERROR: No hay suficientes preguntas en la lista (mínimo 7).");
+            return;
+        }
+
+        // Validación: Verificar si hay diálogos iniciales
+        if (initialDialogues.Count == 0)
+        {
+            Debug.LogError("❌ ERROR: No hay diálogos iniciales en la lista.");
+            return;
+        }
+
+        // Desactivar los botones al inicio
         foreach (Button button in optionButtons)
         {
+            if (button == null)
+            {
+                Debug.LogError("❌ ERROR: Uno de los botones de opción no está asignado en el Inspector.");
+                return;
+            }
             button.gameObject.SetActive(false);
         }
 
@@ -39,39 +69,24 @@ public class TypewriterEffect : MonoBehaviour
         SelectRandomQuestions();
 
         // Inicia el diálogo inicial
-        if (initialDialogues.Count > 0)
-        {
-            StartDialogue();  // Iniciar el primer diálogo
-        }
-    }
-
-    void Update()
-    {
-        // Saltar el efecto tipowriter o avanzar al siguiente diálogo
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isTyping)
-            {
-                SkipTyping();  // Saltar el efecto tipowriter
-            }
-            else if (!isShowingOptions)
-            {
-                NextDialogue();  // Avanzar al siguiente diálogo
-            }
-        }
+        StartDialogue();
     }
 
     void SelectRandomQuestions()
     {
-        // Copia la lista de preguntas para no modificar la original
         List<string> availableQuestions = new List<string>(questions);
 
-        // Selecciona 7 preguntas aleatorias sin repetición
         for (int i = 0; i < 7; i++)
         {
+            if (availableQuestions.Count == 0)
+            {
+                Debug.LogError("❌ ERROR: No hay suficientes preguntas para seleccionar aleatoriamente.");
+                return;
+            }
+
             int randomIndex = Random.Range(0, availableQuestions.Count);
             selectedQuestions.Add(availableQuestions[randomIndex]);
-            availableQuestions.RemoveAt(randomIndex);  // Elimina la pregunta seleccionada para evitar repeticiones
+            availableQuestions.RemoveAt(randomIndex);
         }
     }
 
@@ -79,14 +94,12 @@ public class TypewriterEffect : MonoBehaviour
     {
         if (currentDialogueIndex < initialDialogues.Count)
         {
-            // Muestra el diálogo inicial
             fullText = initialDialogues[currentDialogueIndex];
             textComponent.text = "";
             StartCoroutine(ShowText());
         }
         else
         {
-            // Muestra la primera pregunta
             ShowQuestion();
         }
     }
@@ -96,38 +109,15 @@ public class TypewriterEffect : MonoBehaviour
         isTyping = true;
         for (int i = 0; i <= fullText.Length; i++)
         {
-            currentText = fullText.Substring(0, i);  // Obtener una parte del texto
-            textComponent.text = currentText;  // Actualizar el texto mostrado
-            yield return new WaitForSeconds(delay);  // Esperar antes de mostrar el siguiente carácter
+            currentText = fullText.Substring(0, i);
+            textComponent.text = currentText;
+            yield return new WaitForSeconds(delay);
         }
         isTyping = false;
 
-        // Si es el último diálogo inicial, muestra la primera pregunta
         if (currentDialogueIndex == initialDialogues.Count - 1)
         {
             ShowQuestion();
-        }
-    }
-
-    void SkipTyping()
-    {
-        StopAllCoroutines();  // Detener el efecto tipowriter
-        textComponent.text = fullText;  // Mostrar el texto completo
-        isTyping = false;
-
-        // Si es el último diálogo inicial, muestra la primera pregunta
-        if (currentDialogueIndex == initialDialogues.Count - 1)
-        {
-            ShowQuestion();
-        }
-    }
-
-    void NextDialogue()
-    {
-        if (currentDialogueIndex < initialDialogues.Count - 1)
-        {
-            currentDialogueIndex++;  // Avanzar al siguiente diálogo
-            StartDialogue();  // Iniciar el nuevo diálogo
         }
     }
 
@@ -135,65 +125,69 @@ public class TypewriterEffect : MonoBehaviour
     {
         isShowingOptions = true;
 
-        // Muestra la pregunta actual
+        if (currentQuestionIndex >= selectedQuestions.Count)
+        {
+            Debug.LogError("❌ ERROR: Se ha intentado acceder a una pregunta fuera del rango.");
+            return;
+        }
+
         textComponent.text = selectedQuestions[currentQuestionIndex];
 
-        // Activa los botones de opciones
         foreach (Button button in optionButtons)
         {
             button.gameObject.SetActive(true);
         }
 
-        // Asigna la opción correcta de manera aleatoria
         AssignCorrectOptionRandomly();
     }
 
     void AssignCorrectOptionRandomly()
     {
-        // Elige un índice aleatorio para la opción correcta
         correctOptionIndex = Random.Range(0, optionButtons.Length);
 
-        // Asigna los textos a los botones
         for (int i = 0; i < optionButtons.Length; i++)
         {
-            if (i == correctOptionIndex)
+            if (optionButtons[i] == null)
             {
-                optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = correctOptionText;
-            }
-            else
-            {
-                optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = incorrectOptionText;
+                Debug.LogError("❌ ERROR: Falta asignar un botón en el Inspector.");
+                return;
             }
 
-            // Asigna el evento OnClick a cada botón
-            int index = i;  // Captura el índice para el evento
-            optionButtons[i].onClick.RemoveAllListeners();  // Limpia eventos anteriores
+            TextMeshProUGUI buttonText = optionButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+
+            if (buttonText == null)
+            {
+                Debug.LogError($"❌ ERROR: No se encontró TextMeshProUGUI en el botón {i}.");
+                return;
+            }
+
+            buttonText.text = (i == correctOptionIndex) ? correctOptionText : incorrectOptionText;
+
+            int index = i;
+            optionButtons[i].onClick.RemoveAllListeners();
             optionButtons[i].onClick.AddListener(() => OnOptionSelected(index));
         }
     }
 
     void OnOptionSelected(int selectedIndex)
     {
-        // Verifica si la opción seleccionada es la correcta
         if (selectedIndex == correctOptionIndex)
         {
-            Debug.Log("¡Correcto! Avanzando...");
-            currentQuestionIndex++;  // Pasa a la siguiente pregunta
+            Debug.Log("✅ ¡Correcto! Avanzando...");
+            currentQuestionIndex++;
 
             if (currentQuestionIndex < selectedQuestions.Count)
             {
-                ShowQuestion();  // Muestra la siguiente pregunta
+                ShowQuestion();
             }
             else
             {
-                Debug.Log("¡Has completado todas las preguntas!");
-                // Aquí puedes añadir lógica para terminar el juego o mostrar un mensaje de victoria
+                Debug.Log("🎉 ¡Has completado todas las preguntas!");
             }
         }
         else
         {
-            Debug.Log("Incorrecto. Reiniciando...");
-            // Carga la escena de título
+            Debug.Log("❌ Incorrecto. Reiniciando...");
             SceneManager.LoadScene(titleSceneName);
         }
     }
