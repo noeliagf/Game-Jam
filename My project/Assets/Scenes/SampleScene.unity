@@ -253,14 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311398191cb23b48887c5f800836872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.05
-  initialDialogues: []
-  questions: []
-  optionButtons: []
-  correctOptionText: Correcto
-  incorrectOptionText: Incorrecto
-  titleSceneName: TitleScene
-  textComponent: {fileID: 0}
 --- !u!1 &412320028
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,77 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311398191cb23b48887c5f800836872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.05
-  initialDialogues:
-  - WSQWOKO
-  - JIO
-  - JIO
-  - IH
-  - IOHK
-  - NKL
-  - N
-  - LNI
-  - KL
-  - NK
-  - NKL
-  - NLK
-  - NK
-  - NKLN
-  - LKN
-  - LKN
-  - LN
-  - NJ
-  - NL
-  - JN
-  - LKN
-  - KL
-  - N;K
-  - IJHI
-  - HIOU
-  - H
-  - I
-  - PIJ
-  - KNLK
-  - LIH
-  questions:
-  - 
-  - NJK
-  - KJUNKH
-  - LKN
-  - KLNKL
-  - NK
-  - NLKN
-  - I
-  - HILH
-  - LKK
-  - NK
-  - NKL
-  - NLK
-  - NKL
-  - NKL
-  - NK
-  - NKLNK
-  - LNKL
-  - NK
-  - NK
-  - KK
-  - NK
-  - NI
-  - ;M
-  - KLKNKLNKNOIN
-  - NLK
-  - NK
-  - NK
-  - NKK
-  - KN
-  optionButtons:
-  - {fileID: 852438968}
-  - {fileID: 227426496}
-  - {fileID: 1691450509}
-  correctOptionText: yes
-  incorrectOptionText: no
-  titleSceneName: TitleScene
-  textComponent: {fileID: 446641991}
 --- !u!1 &504890187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 791264437}
-  - component: {fileID: 791264436}
+  - component: {fileID: 791264438}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -1029,20 +950,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &791264436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791264435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49945ad821e3bec48b4152ffe02a7973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiempoRestante: 300
-  tiempoText: {fileID: 1008558830}
 --- !u!4 &791264437
 Transform:
   m_ObjectHideFlags: 0
@@ -1058,6 +965,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791264438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791264435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49945ad821e3bec48b4152ffe02a7973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoRestante: 180
+  tiempoText: {fileID: 1008558830}
 --- !u!1 &852438966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,14 +1113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311398191cb23b48887c5f800836872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.05
-  initialDialogues: []
-  questions: []
-  optionButtons: []
-  correctOptionText: Correcto
-  incorrectOptionText: Incorrecto
-  titleSceneName: TitleScene
-  textComponent: {fileID: 0}
 --- !u!1 &1000279819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1325,92 @@ RectTransform:
   m_AnchoredPosition: {x: 40, y: 150}
   m_SizeDelta: {x: 199.82007, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1079928940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079928941}
+  - component: {fileID: 1079928942}
+  m_Layer: 5
+  m_Name: Question
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1079928941
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079928940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1711476252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1079928942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079928940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5b0c953c4759f448781fd59d05dd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questions:
+  - s
+  - k
+  - ko
+  - jop
+  - jo
+  - joj
+  - jo
+  - jop
+  - jo
+  - j
+  - oj
+  - ojo
+  - jo
+  - pjop
+  - jop
+  - jopj
+  - opjkln
+  - kn
+  - lkn
+  - lkn
+  - kn
+  - kn
+  - kl
+  - nkl
+  - nkl
+  - nlk
+  - nl
+  - n
+  - lknl
+  - kl
+  optionButtons:
+  - {fileID: 852438968}
+  - {fileID: 227426496}
+  - {fileID: 1691450509}
+  correctOptionText: Correcto
+  incorrectOptionText: Incorrecto
+  titleSceneName: TitleScene
 --- !u!1 &1149523182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,6 +1713,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570059691}
   m_CullTransparentMesh: 1
+--- !u!1 &1647603164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647603165}
+  - component: {fileID: 1647603166}
+  m_Layer: 5
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1647603165
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647603164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1711476252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1647603166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647603164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a7a384d5810941b13aba96de96d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.05
+  initialDialogues:
+  - gola
+  - si
+  - gominola
+  - owo!
+  - fok
+  textComponent: {fileID: 446641991}
 --- !u!1 &1691450507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,14 +1915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311398191cb23b48887c5f800836872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.05
-  initialDialogues: []
-  questions: []
-  optionButtons: []
-  correctOptionText: Correcto
-  incorrectOptionText: Incorrecto
-  titleSceneName: TitleScene
-  textComponent: {fileID: 0}
 --- !u!1 &1711476248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +2017,8 @@ RectTransform:
   - {fileID: 852438967}
   - {fileID: 227426495}
   - {fileID: 1691450508}
+  - {fileID: 1647603165}
+  - {fileID: 1079928941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
