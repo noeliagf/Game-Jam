@@ -63,7 +63,7 @@ public class QuestionManager : MonoBehaviour
         }
 
         Question currentQuestion = selectedQuestions[currentQuestionIndex];
-
+        print(questionTextComponent);
         // Mostrar la pregunta en el TextMeshProUGUI
         if (questionTextComponent != null)
         {

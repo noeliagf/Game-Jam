@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;  // Asegúrate de importar TextMeshPro
+using UnityEngine.SceneManagement;  // Asegúrate de importar SceneManagement
 
 public class TimerController : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class TimerController : MonoBehaviour
         int segundos = Mathf.FloorToInt(tiempoRestante % 60);
         tiempoText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
 
-        // Si el tiempo llega a 0, terminar la entrevista
-        if (tiempoRestante <= 0f)
+        // Si el tiempo llega a 0:01, terminar la entrevista
+        if (tiempoRestante <= 1f)
         {
             TerminarEntrevista();
         }
@@ -34,6 +35,6 @@ public class TimerController : MonoBehaviour
     void TerminarEntrevista()
     {
         Debug.Log("¡Entrevista terminada!");
-        // Aquí puedes mostrar un mensaje de derrota o pasar a otra escena
+        SceneManager.LoadScene("DeathScene");  // Cargar la escena de muerte
     }
 }

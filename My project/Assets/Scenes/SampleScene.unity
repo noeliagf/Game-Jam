@@ -542,7 +542,7 @@ MonoBehaviour:
   - {fileID: 852438968}
   - {fileID: 227426496}
   - {fileID: 1691450509}
-  titleSceneName: TitleScene
+  questionTextComponent: {fileID: 0}
 --- !u!1 &504890187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,108 +1557,116 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - questionText: "BUENAS, ME SORPENDE MUCHO VERTE AQU\xCD, \xBFC\xD3MO HAS VENIDO? "
-    option1: PATINETE ELECTRICO
-    option2: "HE TENIDO QUE SACAR EL PARAGUAS/LA PARAGUA ES UN BARCO PARA NAVEGAR
-      EN ESTE OC\xC9ANO DE LUZ   "
-    option3: 'CAMINANDO '
+  - questionText: "HACE MUY BUEN D\xCDA, \xBFVERDAD?"
+    option1: "LA VERDAD QUE S\xCD"
+    option2: SI NO FUESE POR ESTA ENTREVISTA, NO SALGO DE CASA
+    option3: "NO EST\xC1 MAL"
     correctOption: 2
-  - questionText: "LEEMOS EN TU CV QUE HAS TRABAJADO COMO JEFE DE COCINA EN MC GOOFY\u2019S.
-      \xBFCU\xC1LES FUERON TUS FUNCIONES? "
+  - questionText: "EN TU CV PONE QUE HAS TRABAJADO COMO JEFE DE COCINA EN MC GOOFY\u2019S,
+      \xBFCU\xC1LES FUERON TUS FUNCIONES?"
     option1: DESIGNAR CUERPOS A DIFERENTES COCINEROS
     option2: COMER LOS RESTOS
-    option3: HACER PELOTAS AL JEFE
+    option3: HACER PELOTA AL JEFE
     correctOption: 1
-  - questionText: "\xBFD\xD3NDE TE VES EN TRES 3 A\xD1OS?  "
+  - questionText: "\xBFD\xD3NDE TE VES EN TRES 3 A\xD1OS? "
     option1: ASCENDER COMO JEFE
-    option2: 'MAKE HUMBURGER QUEEN GREAT AGAIN '
-    option3: 'ESTAR DESPEDIDO  '
+    option2: MAKE HUMBURGER QUEEN GREAT AGAIN
+    option3: ESTAR DESPEDIDO
     correctOption: 2
   - questionText: "\xBFQU\xC9 TIPO DE CARNE HUELE A MENTIRA Y LOCURA? "
     option1: "LOS POL\xCDTICOS  "
-    option2: 'GRANDES '
-    option3: LOS GUIRIS
-    correctOption: 3
-  - questionText: "\xBFQU\xC9 TIPO DE CARNE USAR\xCDAS SI EL CLIENTE QUIERE HAMBURGUESA
-      M\xC1S SALADA? "
-    option1: 'UNO '
-    option2: "M\xC1S "
-    option3: TODO ES PSICOLOGICO, YA ESTA BIEN ASI
-    correctOption: 3
-  - questionText: "\xBFQU\xC9 EXPECTATIVA SALARIAL TIENES? "
-    option1: "YA ME HAS DADO TRABAJO, \xBFPOR QU\xC9 NECESITO SALARIO "
+    option2: 'GRANDES EMPRESARIOS '
+    option3: EL KOKAS
+    correctOption: 1
+  - questionText: "\xBFQU\xC9 TIPO DE CARNE USAR\xCDAS SI EL CLIENTE QUIERE LA HAMBURGUESA
+      M\xC1S SALADA?"
+    option1: UNO QUE HA LLORADO ANTES DE MORIR
+    option2: "ECHAR M\xC1S SAL"
+    option3: "TODO ES PSICOLOGICO, YA EST\xC1 BIEN AS\xCD"
+    correctOption: 1
+  - questionText: "\xBFQU\xC9 EXPECTATIVA SALARIAL TIENES?"
+    option1: "YA ME HAS DADO TRABAJO, \xBFPOR QU\xC9 NECESITO SALARIO?"
     option2: 10 CABEZAS AL MES
-    option3: 1 CHIMPANCE
+    option3: "1 CHIMPANC\xC9"
     correctOption: 2
-  - questionText: "\xBFQU\xC9 HACER PARA QUE LA CARNE EST\xC9 M\xC1S TIERNA? "
+  - questionText: "\xBFQU\xC9 HACER PARA QUE LA CARNE EST\xC9 M\xC1S TIERNA?"
     option1: ECHAR MAICENA Y CLARA DE HUEVO
     option2: 'ECHAR LAVA Y CENIZA  '
-    option3: 'SANGRE '
+    option3: SANGRE AZUL
     correctOption: 1
-  - questionText: 'PRODUCTO '
+  - questionText: "\xBFQU\xC9 PLATO INCORPORAR\xCDAS AL MEN\xDA?"
     option1: PULPO A LA MARCIANA
     option2: "PINCHO DE MIRI\xC1PODOS "
-    option3: 'HOTPOT DE COLUMNA VERTEBRAL  '
+    option3: HOTPOT DE COLUMNA VERTEBRAL
     correctOption: 2
-  - questionText: "\xBFPOR QU\xC9 LA CARNE A VECES SE QUEDA AMARGA? "
+  - questionText: "\xBFPOR QU\xC9 LA CARNE A VECES SE QUEDA AMARGA?"
     option1: 'SU VIDA HA SIDO DURA  '
-    option2: 'LLEVA '
-    option3: UVA CON PIEL
+    option2: "LLEVA U\xD1AS"
+    option3: PORQUE PA DULCE TUS LABIOS
     correctOption: 1
   - questionText: "\xBFQU\xC9 HAR\xCDAS SI VES UN PELO EN LA COMIDA? "
-    option1: 'QUITAR '
-    option2: "QU\xC9 BUEN GUSTO TIENE ESTE CLIENTE  "
-    option3: "REZAR AL NUESTRO SE\xD1OR TODOS PODEROSOS, CREADOR, ORIGEN, PROTECTOR
-      DE TODOS LOS MONSTRUOS Y DIOS DEL MOCO VOLADOR "
-    correctOption: 3
-  - questionText: "\xBFQU\xC9 HAR\xCDAS SI TU COMPA\xD1ERO DE TRABAJO QUIERE COMER
+    option1: QUITARLO
+    option2: 'ES UN PLATO MUY COTIZADO '
+    option3: 'SUBASTARLO '
+    correctOption: 2
+  - questionText: "\xBFQU\xC9 HAR\xCDAS SI TU COMPA\xD1ERO DE TRABAJO QUIERE COMERSE
       UN PEDIDO? "
-    option1: 'ESTE BICHO ES LISTO, HAY QUE CORTARLE LA CABEZA '
-    option2: 'NO '
-    option3: 'UNO '
+    option1: ESTE BICHO ES LISTO, HAY QUE CORTARLE LA CABEZA
+    option2: "NO HAR\xCDA NADA"
+    option3: "ME UNO A \xC9L"
     correctOption: 1
-  - questionText: "\xBFQU\xC9 HAR\xCDAS SI UNO DE TU COMPA\xD1ERO EMPIEZA A ATACAR
-      A OTRO COMPA\xD1ERO? "
-    option1: 'APROVECHAR PARA ROBAR UN PEDIDO  '
-    option2: "COMER UN TROZO DE CUERPO DEL COMPA\xD1ERO  "
+  - questionText: "\xBFQU\xC9 HAR\xCDAS SI UNO DE TUS COMPA\xD1EROS EMPIEZA A ATACAR
+      A OTRO COMPA\xD1ERO?"
+    option1: APROVECHAR PARA ROBAR UN PEDIDO
+    option2: "COMER UN TROZO DE CUERPO DEL COMPA\xD1ERO"
     option3: 'ESCUPIR EN LA COMIDA  '
-    correctOption: 3
-  - questionText: "BIENVENIDO A HUMBURGER QUEEN. Y ENCIMA HACE MUY BUEN D\xCDA. "
-    option1: "QU\xC9 BUEN TIEMPO HACE "
-    option2: "SI NO FUESE POR ESTA ENTREVISTA NO SALGO DE CASA \u2013 respuesta correcta "
-    option3: "NO EST\xC1 MAL "
+    correctOption: 2
+  - questionText: "\xBFQU\xC9 BEBIDA A\xD1ADIR\xCDAS AL MEN\xDA?"
+    option1: 'PRODUCTOS DE LIMPIEZA '
+    option2: "ZUMO DE SAND\xCDA"
+    option3: 'CHOCOLATE FUNDIDO '
     correctOption: 1
   - questionText: "\xBFHAS CONOCIDO A BADIVA?  "
     option1: "ME PARECI\xD3 VERLA CON LA SECRETARIA"
-    option2: "SE PARECE A UN POL\xCDTICO TERRESTRE "
+    option2: "SE PARECE A UN POL\xCDTICO TERRESTRE"
     option3: "TIENE UN ESTILO \xDANICO "
-    correctOption: 2
+    correctOption: 1
   - questionText: "QU\xC9 CASUALIDAD QUE CON ESE NOMBRE TE DEDIQUES A LA COCINA,
       \xBFCU\xC1L ES TU NOMBRE COMPLETO? "
-    option1: 'DURUM EQUISELE '
-    option2: 'AGENTE '
+    option1: DURUM EQUISELE
+    option2: AGENTE GOAT
     option3: 'BURGOR DEPOIO '
+    correctOption: 3
+  - questionText: "\xBFCUANT\xC1S VECES HAY QUE MASTICAR ANTES DE TRAGAR?"
+    option1: "\xBFMASTICAR? \xBFQU\xC9 ES MASTICAR?"
+    option2: 30 VECES
+    option3: 10 VECES
     correctOption: 1
-  - questionText: "\xBFCUANT\xC1S VECES HAY QUE MASTICAR ANTES DE TRAGAR? "
-    option1: "\xBFMASTICAR? \xBFQU\xC9 ES MASTICAR? "
-    option2: '30 VECES  '
-    option3: VECES
+  - questionText: "\xBFQU\xC9 HACES PARA DESCANSAR EN LA COCINA?"
+    option1: BOLSA DE DORMIR
+    option2: "COLCH\xD3N HINCHABLE"
+    option3: VOLVER A CASA
+    correctOption: 2
+  - questionText: DIME LA CARACTERISTICA SOBRE LA CARNE DE ESTA ZONA
+    option1: "EST\xC1 MUY DURA"
+    option2: SUELE SER TIERNA
+    option3: SABE A PESCADO
     correctOption: 3
-  - questionText: "\xBFQU\xC9 HACES PARA DESCANSAR EN LA COCINA? "
-    option1: 'BOLSA DE DORMIR  '
-    option2: "COLCH\xD3N HINCHABLE  "
-    option3: 'VOLVER A CASA  '
-    correctOption: 3
-  - questionText: 'DIME LA CARACTERISTICA SOBRE LA CARNE DE ESTA ZONA '
-    option1: 'EN GENERAL DURA  '
-    option2: 'GENERAL '
-    option3: EN GENERAL AL PUNTO
+  - questionText: "\xBFQU\xC9 COSTUMBRE TIENEN NUESTROS CLIENTES?"
+    option1: COMER HUMBURGERS DELANTE DE UN VEGETARIANO
+    option2: LLORAR ANTES DE COMER
+    option3: SON VEGETARIANOS
+    correctOption: 2
+  - questionText: DIME LA CARACTERISTICA SOBRE LA CARNE DE ESTA ZONA
+    option1: "EST\xC1 MUY DURA"
+    option2: SUELE SER TIERNA
+    option3: SABE A PESCADO
     correctOption: 3
   optionButtons:
   - {fileID: 852438968}
   - {fileID: 227426496}
   - {fileID: 1691450509}
-  titleSceneName: TitleScene
+  questionTextComponent: {fileID: 446641991}
 --- !u!1 &1149523182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,11 +2019,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.05
   initialDialogues:
-  - EY
-  - OLA
-  - gominola
-  - owo!
-  - UH CHA CHA U  CHA
+  - "RAKK: CANDIDATO A CHEFF N\xBA 537, EST\xC1S A UN SOLO PASO DE FIRMAR UN CONTRATO
+    DE POR VIDA EN LA MEJOR CADENA DE HAMBURGUESAS DEL UNIVERSO. "
+  - "AGENTE GOAT: I\u2019M LIKIN IT."
+  - 'RAKK: POCAS PALABRAS, ME GUSTA. EL TIEMPO ES DINERO, VAMOS CON LA ENTREVISTA.'
   textComponent: {fileID: 446641991}
   questionManager: {fileID: 1079928942}
 --- !u!1 &1691450507
