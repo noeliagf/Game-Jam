@@ -8,12 +8,15 @@ using System.Collections.Generic;
 public class TypewriterEffect : MonoBehaviour
 {
     public float delay = 0.05f;  // Velocidad del efecto (segundos por carácter)
-    public List<string> dialogues = new List<string>();  // Lista de diálogos
+    public List<string> initialDialogues = new List<string>();  // Diálogos iniciales
+    public List<string> questions = new List<string>();  // Lista de 30 preguntas
     public Button[] optionButtons;  // Los tres botones de opciones
     public string correctOptionText = "Correcto";  // Texto de la opción correcta
     public string incorrectOptionText = "Incorrecto";  // Texto de las opciones incorrectas
     public string titleSceneName = "TitleScene";  // Nombre de la escena de título
 
+    private List<string> selectedQuestions = new List<string>();  // Preguntas seleccionadas aleatoriamente
+    private int currentQuestionIndex = 0;  // Índice de la pregunta actual
     private int currentDialogueIndex = 0;  // Índice del diálogo actual
     private string fullText;  // Texto completo del diálogo actual
     private string currentText = "";  // Texto actual mostrado
@@ -32,7 +35,11 @@ public class TypewriterEffect : MonoBehaviour
             button.gameObject.SetActive(false);
         }
 
-        if (dialogues.Count > 0)
+        // Selecciona 7 preguntas aleatorias sin repetición
+        SelectRandomQuestions();
+
+        // Inicia el diálogo inicial
+        if (initialDialogues.Count > 0)
         {
             StartDialogue();  // Iniciar el primer diálogo
         }
@@ -54,11 +61,34 @@ public class TypewriterEffect : MonoBehaviour
         }
     }
 
+    void SelectRandomQuestions()
+    {
+        // Copia la lista de preguntas para no modificar la original
+        List<string> availableQuestions = new List<string>(questions);
+
+        // Selecciona 7 preguntas aleatorias sin repetición
+        for (int i = 0; i < 7; i++)
+        {
+            int randomIndex = Random.Range(0, availableQuestions.Count);
+            selectedQuestions.Add(availableQuestions[randomIndex]);
+            availableQuestions.RemoveAt(randomIndex);  // Elimina la pregunta seleccionada para evitar repeticiones
+        }
+    }
+
     void StartDialogue()
     {
-        fullText = dialogues[currentDialogueIndex];  // Obtener el diálogo actual
-        textComponent.text = "";  // Borrar el texto inicial
-        StartCoroutine(ShowText());  // Iniciar el efecto tipowriter
+        if (currentDialogueIndex < initialDialogues.Count)
+        {
+            // Muestra el diálogo inicial
+            fullText = initialDialogues[currentDialogueIndex];
+            textComponent.text = "";
+            StartCoroutine(ShowText());
+        }
+        else
+        {
+            // Muestra la primera pregunta
+            ShowQuestion();
+        }
     }
 
     IEnumerator ShowText()
@@ -72,10 +102,10 @@ public class TypewriterEffect : MonoBehaviour
         }
         isTyping = false;
 
-        // Si es el último diálogo, mostrar opciones
-        if (currentDialogueIndex == dialogues.Count - 1)
+        // Si es el último diálogo inicial, muestra la primera pregunta
+        if (currentDialogueIndex == initialDialogues.Count - 1)
         {
-            ShowOptions();
+            ShowQuestion();
         }
     }
 
@@ -85,25 +115,28 @@ public class TypewriterEffect : MonoBehaviour
         textComponent.text = fullText;  // Mostrar el texto completo
         isTyping = false;
 
-        // Si es el último diálogo, mostrar opciones
-        if (currentDialogueIndex == dialogues.Count - 1)
+        // Si es el último diálogo inicial, muestra la primera pregunta
+        if (currentDialogueIndex == initialDialogues.Count - 1)
         {
-            ShowOptions();
+            ShowQuestion();
         }
     }
 
     void NextDialogue()
     {
-        if (currentDialogueIndex < dialogues.Count - 1)
+        if (currentDialogueIndex < initialDialogues.Count - 1)
         {
             currentDialogueIndex++;  // Avanzar al siguiente diálogo
             StartDialogue();  // Iniciar el nuevo diálogo
         }
     }
 
-    void ShowOptions()
+    void ShowQuestion()
     {
         isShowingOptions = true;
+
+        // Muestra la pregunta actual
+        textComponent.text = selectedQuestions[currentQuestionIndex];
 
         // Activa los botones de opciones
         foreach (Button button in optionButtons)
@@ -145,7 +178,17 @@ public class TypewriterEffect : MonoBehaviour
         if (selectedIndex == correctOptionIndex)
         {
             Debug.Log("¡Correcto! Avanzando...");
-            // Aquí puedes continuar con la siguiente parte del juego
+            currentQuestionIndex++;  // Pasa a la siguiente pregunta
+
+            if (currentQuestionIndex < selectedQuestions.Count)
+            {
+                ShowQuestion();  // Muestra la siguiente pregunta
+            }
+            else
+            {
+                Debug.Log("¡Has completado todas las preguntas!");
+                // Aquí puedes añadir lógica para terminar el juego o mostrar un mensaje de victoria
+            }
         }
         else
         {
