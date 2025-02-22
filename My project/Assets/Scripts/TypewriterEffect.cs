@@ -41,7 +41,7 @@ public class TypewriterEffect : MonoBehaviour
     void Update()
     {
         // Saltar el efecto tipowriter o avanzar al siguiente diálogo
-        if (Input.GetKeyDown(KeyCode.Space)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
             {
