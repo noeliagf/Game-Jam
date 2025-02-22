@@ -6,22 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class QuestionManager : MonoBehaviour
 {
-    public List<string> questions = new List<string>();
-    public Button[] optionButtons;
-    public string correctOptionText = "Correcto";
-    public string incorrectOptionText = "Incorrecto";
-    public string titleSceneName = "TitleScene";
-    private List<string> selectedQuestions = new List<string>();
-    private int currentQuestionIndex = 0;
-    private int correctOptionIndex;
+    public List<Question> questions = new List<Question>();  // Lista de preguntas
+    public Button[] optionButtons;  // Botones de opciones
+    public string titleSceneName = "TitleScene";  // Nombre de la escena de título
+    private List<Question> selectedQuestions = new List<Question>();  // Preguntas seleccionadas aleatoriamente
+    private int currentQuestionIndex = 0;  // Índice de la pregunta actual
 
     void Start()
     {
+        // Desactivar botones al inicio
         foreach (Button button in optionButtons)
         {
             button.gameObject.SetActive(false);
         }
 
+        // Seleccionar preguntas aleatorias
         SelectRandomQuestions();
     }
 
@@ -39,7 +38,7 @@ public class QuestionManager : MonoBehaviour
             return;
         }
 
-        List<string> availableQuestions = new List<string>(questions);
+        List<Question> availableQuestions = new List<Question>(questions);
         int questionsToSelect = Mathf.Min(7, availableQuestions.Count);
 
         for (int i = 0; i < questionsToSelect; i++)
@@ -63,35 +62,32 @@ public class QuestionManager : MonoBehaviour
             return;
         }
 
-        string currentQuestion = selectedQuestions[currentQuestionIndex];
-        Debug.Log("Pregunta actual: " + currentQuestion);
+        Question currentQuestion = selectedQuestions[currentQuestionIndex];
+        Debug.Log("Pregunta actual: " + currentQuestion.questionText);
 
+        // Mostrar las opciones en los botones
+        optionButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.option1;
+        optionButtons[1].GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.option2;
+        optionButtons[2].GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.option3;
+
+        // Activar los botones de opciones
         foreach (Button button in optionButtons)
         {
             button.gameObject.SetActive(true);
         }
 
-        AssignCorrectOptionRandomly();
-    }
-
-    void AssignCorrectOptionRandomly()
-    {
-        correctOptionIndex = Random.Range(0, optionButtons.Length);
-
+        // Asignar eventos a los botones
         for (int i = 0; i < optionButtons.Length; i++)
         {
-            TextMeshProUGUI buttonText = optionButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = (i == correctOptionIndex) ? correctOptionText : incorrectOptionText;
-
             int index = i;
             optionButtons[i].onClick.RemoveAllListeners();
-            optionButtons[i].onClick.AddListener(() => OnOptionSelected(index));
+            optionButtons[i].onClick.AddListener(() => OnOptionSelected(index, currentQuestion.correctOption));
         }
     }
 
-    void OnOptionSelected(int selectedIndex)
+    void OnOptionSelected(int selectedIndex, int correctOption)
     {
-        if (selectedIndex == correctOptionIndex)
+        if (selectedIndex + 1 == correctOption)  // +1 porque los índices empiezan en 0
         {
             Debug.Log("✅ ¡Correcto! Avanzando...");
             currentQuestionIndex++;
@@ -102,6 +98,7 @@ public class QuestionManager : MonoBehaviour
             else
             {
                 Debug.Log("🎉 ¡Has completado todas las preguntas!");
+                // Aquí puedes añadir lógica para terminar el juego o mostrar un mensaje de victoria
             }
         }
         else
